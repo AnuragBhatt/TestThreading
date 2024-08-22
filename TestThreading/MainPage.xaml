@@ -1,0 +1,44 @@
+﻿<Page x:Class="TestThreading.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:TestThreading"
+      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+  <StackPanel
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+    <StackPanel Orientation="Horizontal">
+    <TextBlock 
+          Text="Step 1: Generate n objects (default 5000, please change value)"
+          HorizontalAlignment="Center" Padding="10 0 0 0" />
+    <TextBox x:Name="txtConnotes" Width="150" Text="5000"></TextBox>
+      
+
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+    <Button Content="Step 2: Click to Generate collection in memory" Click="Generate_Click"></Button>
+    <TextBlock Foreground="Green" x:Name="stGenerated"
+HorizontalAlignment="Right" />
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <Button Content="Step 3: Serialize (In Main Thread)" Click="Serialize_Sync_Click" ></Button>
+      <TextBlock Foreground="Green" x:Name="stSerialized"
+HorizontalAlignment="Right" />
+    </StackPanel>
+    <!--<StackPanel Orientation="Horizontal">
+      <TextBlock Text="Collection length"></TextBlock>
+      <TextBox x:Name="txtObject" Width="150"></TextBox>
+    </StackPanel>-->
+    <StackPanel Orientation="Horizontal">
+      <Button Content="Step 4.1: Deserialize (In Main Thread)" Click="Deserialize_Sync_Click"></Button>
+      <TextBlock Foreground="Green" x:Name="stDeserializedSync"
+HorizontalAlignment="Right" />
+    </StackPanel>
+    <!--<TextBox x:Name="txtObject" Width="150"></TextBox>-->
+    <StackPanel Orientation="Horizontal">
+      <Button Content="Step 4.2: Deserialize (In Worker Thread)" Click="Deserialize_Async_Click"></Button>
+      <TextBlock Foreground="Green" x:Name="stDeserializedAsync"
+HorizontalAlignment="Right" />
+    </StackPanel>
+    <Button Content="Clear" Click="Clear_Click"></Button>
+  </StackPanel>
+</Page>
